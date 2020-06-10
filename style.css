@@ -11,6 +11,7 @@ body {
 }
 
 header {
+  display: none;
   height: auto;
   padding: 30px;
 }
@@ -20,12 +21,14 @@ header img {
 }
 
 .container {
+  /* padding: 100px; */
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
+  background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
 }
 
 .container .left {
@@ -71,7 +74,8 @@ header img {
   display: block;
   height: 50px;
   width: 100%;
-  margin: 0 auto;
+  max-width: 400px;
+  margin: auto;
 }
 
 .container form input {
@@ -110,4 +114,81 @@ header img {
 .container form input::placeholder {
   color: hsl(0, 36%, 70%);
   opacity: .8;
+}
+
+.container form .error-icon {
+  display: inline-block;
+  position: absolute;
+  top: 24%;
+  right: 23%;
+  /*asdasd*/
+  display: none;
+}
+
+.container form .error-text {
+  position: absolute;
+  left: 30px;
+  top: 40px;
+  font-size: 1rem;
+  display: none;
+}
+
+.container form.error .error-icon {
+  display: block;
+}
+
+.container form.error .error-text {
+  display: block;
+}
+
+.container form.error input {
+  border: 2px solid hsl(0, 93%, 68%);
+}
+
+@media only screen and (min-width: 768px) {
+  * {
+    overflow: hidden;
+  }
+  header {
+    display: block;
+    position: absolute;
+    margin-left: 10%;
+  }
+  header img {
+    width: 180px;
+  }
+  .container {
+    flex-direction: row;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .container .right {
+    width: 80%;
+    height: 100vh;
+    background-image: url(./images/hero-desktop.jpg);
+  }
+  .container .left {
+    width: 100%;
+    height: 100vh;
+    padding-top: 28vh;
+    text-align: left;
+    padding-left: 10%;
+    background-image: url(./images/bg-pattern-desktop.svg);
+    background-position: center;
+    background-size: cover;
+  }
+  .container .left h1 {
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+  .container .left p {
+    margin-left: 0;
+    font-size: 1.1rem;
+  }
+  .container .left form {
+    margin: 0;
+  }
+  .container .form button {
+    width: 80px;
+  }
 }
